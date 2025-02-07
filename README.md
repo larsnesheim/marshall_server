@@ -35,7 +35,7 @@ export PATH=/opt/openmpi-5.0.5/bin:$PATH
 export LD_LIBRARY_PATH=/opt/optenmpi-5.0.5/lib:$LD_LIBRARY_PATH
 ````
 
-#disks:
+# disks:
 ````
   # df -h / /opt /home/
   Filesystem                    Size  Used Avail Use% Mounted on
