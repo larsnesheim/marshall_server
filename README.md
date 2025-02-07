@@ -1,20 +1,21 @@
-# marshall_server
-Information about the Bristol Econometrics server: Marshall
+# Marshall server
+This site contains information about the Bristol Econometrics server: Marshall
 
 server address:    marshall.efm.bris.ac.uk
 
 # Current users
-we23202        Lars Nesheim
-               Stefan Hubner
+1. we23202        Lars Nesheim
+2.                Stefan Hubner
 
 
 # Unix tips
 
 # set unlimited stack size
+````
 ulimit -s unlimited
-
+````
 # build openmpi
-
+````
 wget xf https://download.open-mpi.org/release/open-mpi/v5.0/openmpi-5.0.5.tar.bz2
 tar xf openmpi-5.0.5.tar.bz2
 cd openmpi-5.0.5
@@ -31,10 +32,10 @@ cd openmpi-5.0.5
 sudo make install -j 32 
 export PATH=/opt/openmpi-5.0.5/bin:$PATH
 export LD_LIBRARY_PATH=/opt/optenmpi-5.0.5/lib:$LD_LIBRARY_PATH
+````
 
-server: "marshall.efm.bris.ac.uk"
-
-disks:
+#disks:
+````
   # df -h / /opt /home/
   Filesystem                    Size  Used Avail Use% Mounted on
   /dev/mapper/rl_marshall-root  120G   19G  102G  16% /
@@ -56,58 +57,56 @@ disks:
      2) Cache for /home
         (not particular resilient SSD in terms of server-level SSD endurance (500TBW endurance total) to cope
           with being a heavy-use cache for the data.)
+````
 
-Questions
- - Backups are not yet enabled
- - "soft" disk quota limits for /home for now at 1000GB
+#Questions
+1. Backups are not yet enabled
+2. "soft" disk quota limits for /home for now at 1000GB
 
-Users:
-    we23202    Lars Nesheim
-               Ertian Chen
 
-Software
-- [X] CUDA
+# Software
+1.  [X] CUDA
   => 12.6 installed along with GPU drivers for this.
   `nvidia-smi` displays correct info for card and driver.
   No further testing done.
 
-- [X] gcc and gfortran
+2. [X] gcc and gfortran
   -> Default system versions installed (8.4)
   => gcc 14.2.0 installed from local repo, available via `module` commands
 
-- [X] R
+3. [X] R
   => R 4.4.1 installed already by "Compute" role
 
-- [X] Julia
+4. [X] Julia
   => 1.10.4 installed from local repo, available via `module`
 
-- [X] Matlab R2024
+5. [X] Matlab R2024
   => Installed from local repo, available via `module`
 
-- [X] Rstudio (for EL8)
+6. [X] Rstudio (for EL8)
   -> tar.gz for latest version from : https://download1.rstudio.org/electron/rhel8/x86_64/rstudio-2024.09.0-375-x86_64-fedora.tar.gz
   => Installed into /opt/ with a module but not yet tested in a GUI
   => Available via `module`
 
-- [X] Python
+7. [X] Python
   -> 3.6.8 provided by system packages as `python3`
   -> `python3.11` already installed as well
   -> Note that the 3.6.8 version is the one with most of the packages,
   such as numpy and scipy.  If a newer version is required we can always
   add something as a module, via Anaconda or something other route.
 
-- [X] VSCode
+8. [X] VSCode
   => Available as `code`; no module load required
 
-- [X] Intel oneapi base toolkit
+9. [X] Intel oneapi base toolkit
   => Manually installed but with module files created into /opt/modulefiles/intel
   (via `/opt/intel/oneapi/modulefiles-setup.sh --output-dir=/opt/modulefiles/intel`)
   => Lots of installed modules now shown by `module avail`
 
-- [X] Intel HPC toolkit
+10. [X] Intel HPC toolkit
   => Manually installed but with module files created into /opt/modulefiles/intel
 
-- [X] Nag Fortran libraries (for both Intel Fortran and GNU Fortran)
+11. [X] Nag Fortran libraries (for both Intel Fortran and GNU Fortran)
 
   From https://support.nag.com/content/downloads-nag-library these
   versions apply:
@@ -133,7 +132,10 @@ Software
   Note that `icc` is called `icx` now, so the examples compile but only
   when this is changed.  Perhaps an alias will fix this?
 
-Graphical interface
+12. Graphical interface
+    Thinlinc
+
+    
 You should also be able to use `x2go' to connect to the host, which
 makes the connection over ssh but allows the use of a GUI remotely.
 If you are on a managed host then hopefully this is available in the
