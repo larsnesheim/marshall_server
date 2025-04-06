@@ -39,29 +39,22 @@ export LD_LIBRARY_PATH=/opt/optenmpi-5.0.5/lib:$LD_LIBRARY_PATH
 ````
   # df -h / /opt /home/
   Filesystem                    Size  Used Avail Use% Mounted on
-  /dev/mapper/rl_marshall-root  120G   19G  102G  16% /
-  /dev/mapper/rl_marshall-opt   200G   66G  135G  33% /opt
-  /dev/mapper/data-home         2.2T   20G  2.2T   1% /home
+  /dev/mapper/rl_marshall-root  120G   21G  100G  18% /
+  /dev/mapper/rl_marshall-opt   200G   67G  134G  34% /opt
+  /dev/mapper/data-home         2.2T  1.7T  568G  75% /home
+  /dev/mapper/rl_marshall-tmp   100G  838M  100G   1% /tmp
+  /dev/mapper/ssd-data          477G  3.4G  474G   1% /ssd
+  /home = bulk data space
 
-/home = bulk data space
+  /opt = software
 
-/opt = software
+  130GB unallocated. Options:
+    50GB allocated to swap
+    80GB unallocated
 
-230GB unallocated. Options: 
-     1) add to the swap,
-     2) add to root,
-     3) add to opt
-     4) create /tmp or other
-
-512 SSD. Options:
-     1) a separate "fast" area?
-     2) Cache for /home
-        (not particular resilient SSD in terms of server-level SSD endurance (500TBW endurance total) to cope
-          with being a heavy-use cache for the data.)
 ````
 
 # Questions
-1. Backups are not yet enabled
 2. "soft" disk quota limits for /home for now at 1000GB
 
 
